@@ -2,7 +2,11 @@
 // Created by Brendan Berg on 26.04.20.
 //
 
+#include <vector>
+
 #include <SFML/graphics.hpp>
+
+#include "Dot.hpp"
 
 
 int main()
@@ -13,6 +17,13 @@ int main()
     sf::RenderWindow window(sf::VideoMode(canvasWidth, canvasHeight),
                             std::string("Connected Dots"),
                             sf::Style::Default);
+
+    std::vector<Dot> dots;
+    dots.reserve(64);
+    for (unsigned int i = 0u; i < 64u; ++i)
+    {
+        dots.emplace_back(canvasWidth, canvasHeight, 10);
+    }
 
     while (window.isOpen())
     {
