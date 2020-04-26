@@ -20,8 +20,7 @@ int main()
 
     std::vector<Dot> dots;
     dots.reserve(64);
-    for (unsigned int i = 0u; i < 64u; ++i)
-    {
+    for (unsigned int i = 0u; i < 64u; ++i) {
         dots.emplace_back(canvasWidth, canvasHeight, 10);
     }
 
@@ -41,6 +40,11 @@ int main()
                     window.close();
                 }
             }
+        }
+
+        for (auto& it : dots)
+        {
+            it.Update();
         }
 
         window.setFramerateLimit(60);
